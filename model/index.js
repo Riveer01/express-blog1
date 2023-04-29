@@ -21,5 +21,7 @@ db.once("open", function () {
 // 到数据库里面是 users
 module.exports = {
   // User: mongoose.model('User', require('./user')),
-  Article: mongoose.model('Article', require('./article'))
+  Article: mongoose.model('Article', require('./article')),
+  Comment: mongoose.model('Comment', require('./comment')),
+  User: mongoose.model('User', require('./user'))
 }

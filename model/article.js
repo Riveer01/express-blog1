@@ -1,13 +1,10 @@
 const mongoose = require('mongoose')
-const baseModel = require('./base-model')
-// const { Schema } = mongoose
 
 const articleSchema = new mongoose.Schema({
-  ...baseModel,
-  // title: {
-  //   type: String,
-  //   required: true
-  // },
+  title: {
+    type: String,
+    required: true
+  },
   description: {
     type: String,
     required: true
@@ -20,19 +17,15 @@ const articleSchema = new mongoose.Schema({
     type: [String],
     default: null
   },
-  // tagList: {
-  //   type: [String],
-  //   default: null
-  // },
-  // favoritesCount: {
-  //   type: Number,
-  //   default: 0
-  // },
-  // author: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'User',
-  //   required: true
-  // }
+  createAt: {
+    type: Date,
+    required: true
+  },
+  likes: {
+    type: Number,
+    default: 0
+  },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 })
 
 module.exports = articleSchema
